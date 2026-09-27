@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* { box-sizing: border-box; }
+html, body, #root { min-height: 100%; height: 100%; margin: 0; background-color: #06070a; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased; }
+
+/* Keep responsive scrolling, but hide visual scrollbars */
+* { scrollbar-width: none; }
+*::-webkit-scrollbar { display: none; width: 0; height: 0; }
+
+/* ── RED GLOWING GRID & ANIMATED LASER BACKGROUND ─────────────────────── */
+.red-grid-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: #06070a;
+}
+
+/* Glowing Red Grid Lines */
+.red-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(239, 68, 68, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(239, 68, 68, 0.14) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: grid-pulse 6s ease-in-out infinite alternate;
+}
+
+/* Secondary fine red grid */
+.red-grid-bg-fine {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(239, 68, 68, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(239, 68, 68, 0.05) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+/* Radial Glow Orbs */
+.red-radial-glow {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 15% 15%, rgba(239, 68, 68, 0.2), transparent 45%),
+    radial-gradient(circle at 85% 25%, rgba(220, 38, 38, 0.18), transparent 40%),
+    radial-gradient(circle at 50% 85%, rgba(239, 68, 68, 0.15), transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(153, 27, 27, 0.22), transparent 45%);
+  filter: blur(45px);
+  animation: red-glow-drift 18s ease-in-out infinite alternate;
+}
+
+/* Horizontal Animated Scanning Red Laser Line */
+.red-laser-line-h {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(239, 68, 68, 0.4) 20%, #ff5555 50%, rgba(239, 68, 68, 0.4) 80%, transparent 100%);
+  box-shadow: 0 0 15px #ef4444, 0 0 30px #ef4444, 0 0 45px rgba(239, 68, 68, 0.8);
+  opacity: 0.85;
+  animation: laser-scan-h 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Vertical Animated Scanning Red Laser Line */
+.red-laser-line-v {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent 0%, rgba(239, 68, 68, 0.4) 20%, #ff5555 50%, rgba(239, 68, 68, 0.4) 80%, transparent 100%);
+  box-shadow: 0 0 15px #ef4444, 0 0 30px #ef4444, 0 0 45px rgba(239, 68, 68, 0.8);
+  opacity: 0.75;
+  animation: laser-scan-v 12s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Secondary Horizontal Laser Beam */
+.red-laser-line-h2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, #ff5555 50%, transparent 100%);
+  box-shadow: 0 0 12px #ef4444;
+  opacity: 0.65;
+  animation: laser-scan-h-rev 11s ease-in-out infinite;
+}
+
+/* KEYFRAMES FOR RED LINE ANIMATIONS & GRID PULSE */
+@keyframes grid-pulse {
+  from { opacity: 0.45; }
+  to { opacity: 0.9; }
+}
+
+@keyframes red-glow-drift {
+  from { transform: translate3d(-2%, -2%, 0) scale(1); }
+  50% { transform: translate3d(2%, 3%, 0) scale(1.08); }
+  to { transform: translate3d(-1%, 2%, 0) scale(0.95); }
+}
+
+@keyframes laser-scan-h {
+  0% { top: -5%; opacity: 0; }
+  10% { opacity: 0.9; }
+  90% { opacity: 0.9; }
+  100% { top: 105%; opacity: 0; }
+}
+
+@keyframes laser-scan-h-rev {
+  0% { top: 105%; opacity: 0; }
+  15% { opacity: 0.75; }
+  85% { opacity: 0.75; }
+  100% { top: -5%; opacity: 0; }
+}
+
+@keyframes laser-scan-v {
+  0% { left: -5%; opacity: 0; }
+  10% { opacity: 0.85; }
+  90% { opacity: 0.85; }
+  100% { left: 105%; opacity: 0; }
+}
+
+/* ── TRANSLUCENT GLASSMORPHISM EFFECTS FOR UI ELEMENTS ─────────────────────── */
+.glass-panel,
+.MuiPaper-root {
+  background: rgba(10, 12, 20, 0.45) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1px solid rgba(239, 68, 68, 0.32) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45), inset 0 0 15px rgba(239, 68, 68, 0.06) !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.MuiPaper-root:hover {
+  border-color: rgba(239, 68, 68, 0.55) !important;
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6), 0 0 30px rgba(239, 68, 68, 0.3), inset 0 0 20px rgba(239, 68, 68, 0.1) !important;
+}
+
+.MuiCard-root {
+  background: rgba(12, 14, 24, 0.40) !important;
+  backdrop-filter: blur(14px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
+  border: 1px solid rgba(239, 68, 68, 0.28) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.MuiCard-root:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(255, 85, 85, 0.6) !important;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(239, 68, 68, 0.35) !important;
+}
+
+/* Glass inputs */
+.MuiOutlinedInput-root {
+  background: rgba(14, 16, 26, 0.38) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-radius: 8px !important;
+}
+
+.MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(239, 68, 68, 0.3) !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(239, 68, 68, 0.6) !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.5) !important;
+}
+
+/* Glass Appbar / Header */
+.MuiAppBar-root {
+  background: rgba(8, 9, 15, 0.55) !important;
+  backdrop-filter: blur(20px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+  border-bottom: 1px solid rgba(239, 68, 68, 0.32) !important;
+}
+
+/* Glass Drawer / Sidebar */
+.MuiDrawer-paper {
+  background: rgba(8, 9, 15, 0.55) !important;
+  backdrop-filter: blur(20px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+  border-right: 1px solid rgba(239, 68, 68, 0.32) !important;
+}
+
+/* Glass Table styling */
+.MuiTableContainer-root {
+  background: rgba(10, 12, 20, 0.42) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+}
+
+.MuiTableHead-root {
+  background: rgba(239, 68, 68, 0.18) !important;
+}
+
+.MuiTableRow-root:hover {
+  background: rgba(239, 68, 68, 0.14) !important;
+}
+
+/* Glass Dialog */
+.MuiDialog-paper {
+  background: rgba(10, 12, 20, 0.70) !important;
+  backdrop-filter: blur(24px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
+  border: 1px solid rgba(239, 68, 68, 0.4) !important;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8), 0 0 45px rgba(239, 68, 68, 0.3) !important;
+}
+
+/* Glass Buttons */
+.MuiButton-containedPrimary {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.9) 0%, rgba(239, 68, 68, 0.9) 100%) !important;
+  backdrop-filter: blur(8px) !important;
+  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4) !important;
+}
+
+.MuiButton-containedPrimary:hover {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 1) 0%, rgba(255, 85, 85, 1) 100%) !important;
+  box-shadow: 0 6px 28px rgba(239, 68, 68, 0.6), 0 0 15px rgba(255, 85, 85, 0.5) !important;
+}
+
+.MuiButton-outlined {
+  background: rgba(239, 68, 68, 0.06) !important;
+  border-color: rgba(239, 68, 68, 0.35) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.MuiButton-outlined:hover {
+  background: rgba(239, 68, 68, 0.18) !important;
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.35) !important;
+}
+
+/* Backdrops */
+.MuiBackdrop-root {
+  backdrop-filter: blur(10px) !important;
+  background-color: rgba(4, 5, 8, 0.75) !important;
+}
+
+/* Selection */
+::selection { background: rgba(239, 68, 68, 0.4); color: #fff; }

@@ -1,0 +1,61 @@
+# Environment & Secret Files (CRITICAL: Do NOT commit secrets)
+.env
+.env.*
+!.env.example
+*.env
+backend/.env
+backend/.env.*
+!backend/.env.example
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# Python Cache & Environment
+__pycache__/
+/**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+backend/venv/
+backend/.venv/
+
+# Database & Storage
+*.sqlite
+*.sqlite3
+*.db
+*.s3db
+*.log
+
+# Node & Frontend Build
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+.npm
+.eslintcache
+
+# Dynamic User Uploads & Generated Reports
+uploads/
+backend/uploads/
+backend/generated_reports/
+backend/static/reports/
+*.pdf
+
+# Memory & Hindsight temporary cache
+hindsight_memory.json
+*.hindsight
+
+# IDEs & System Files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
