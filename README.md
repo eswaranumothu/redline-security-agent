@@ -1,177 +1,128 @@
 # REDLINE — Security That Remembers 🛡️⚡
-> **AI-Powered VAPT Management & Reporting Platform with Persistent Security Memory**  
+
+> **AI-Powered VAPT Management & Reporting Platform with Persistent Security Memory (Hindsight Engine)**  
 > GitHub Repository: [https://github.com/eswaranumothu/redline-security-agent](https://github.com/eswaranumothu/redline-security-agent)
 
 ---
 
-## 🎯 About The Project & Motive
+## 💡 Why REDLINE Was Introduced (Motivation & Vision)
 
-### The Problem: Cybersecurity "Amnesia"
-In conventional Vulnerability Assessment and Penetration Testing (VAPT), security auditors and Security Operations Centers (SOC) face a recurring challenge: **security amnesia**. 
-- Every VAPT assessment ends up in a static PDF report that gets archived.
-- When new projects start or different auditors join, **historical context is lost**.
-- Auditors waste valuable hours re-writing descriptions for common vulnerabilities, re-discovering known attack vectors, and re-inventing remediation strategies that were already tested and proven in past projects.
-- Retest results and verified fixes are rarely connected across different client applications.
+Technology is evolving day by day, and with rapid digital transformation, the **attack surface is constantly expanding**. For Vulnerability Assessment and Penetration Testing (VAPT) engineers, SOC analysts, and security consultants, keeping pace with this evolving landscape presents a formidable challenge.
 
-### The REDLINE Solution & Motive
-**REDLINE** was built to turn static VAPT reporting into an **active, intelligent cybersecurity memory system**. 
+Beyond standardized CVEs, modern application security assessments involve custom business logic vulnerabilities, complex multi-step attack vectors, sub-domain misconfigurations, and novel exploitation techniques that are specific to modern tech stacks. In conventional VAPT workflows:
+- **Historical context is lost**: Assessments end with static PDF reports that are archived and forgotten.
+- **Security Amnesia**: When new projects begin or different auditors join a team, engineers spend hours re-discovering attack vectors, re-writing vulnerability descriptions, and re-inventing remediation strategies that were already tested and proven in past projects.
+- **Disconnected Findings**: Previous retest results, proof-of-concept (PoC) steps, and verified fixes are rarely connected across different applications or client environments.
 
-By combining **Large Language Models (LLMs)** with **Hindsight Persistent Security Memory**, REDLINE enables security teams to:
-1. **Automate Writing & Analysis**: Use LLMs to generate standard vulnerability descriptions, CVSS scoring vectors, and analyze evidence screenshots automatically.
-2. **Remember Past Fixes & Retests**: Memorize every vulnerability, verified fix, and auditor retest note across all past projects using Hindsight vector technology.
-3. **Recall Cross-Project Intelligence**: Automatically suggest relevant historical findings and proven fixes when an auditor logs a new vulnerability.
-4. **Chat with Security Memory**: Ask natural-language questions to an AI assistant that answers based strictly on sanitized past VAPT findings.
+### 🛡️ The REDLINE Solution
+**REDLINE Security Agent** was introduced to solve cybersecurity amnesia. REDLINE transforms VAPT management by integrating an **AI Persistent Security Memory Engine (Hindsight Engine)** with Large Language Models (LLMs). 
+
+It acts as a collective security brain that remembers previous findings, projects, attack steps, business impacts, and verified remediations across all past assessments. When a VAPT engineer logs a new vulnerability, REDLINE instantly recalls similar past findings, suggests proven fixes, and allows auditors to query historical project knowledge via a grounded AI Memory Chat.
 
 ---
 
-## 🤖 Deep Dive: LLM & Hindsight Memory Features
+## 🧠 Core Feature Highlight: Hindsight Persistent Security Memory Engine
 
-### 1. 🤖 Large Language Model (LLM) Capabilities
+At the heart of REDLINE is **Hindsight** — an intelligent vector memory technology designed specifically for cybersecurity auditing:
 
-REDLINE integrates LLM intelligence (Local LLM / Google Gemini) to eliminate repetitive manual documentation for security auditors:
+> [!IMPORTANT]
+> **Hindsight** bridges past security assessments with active audits, ensuring that an organization never loses its security expertise or remediation context when team members transition or new projects launch.
 
-- **Automated Vulnerability Generation**: Given just a vulnerability title (e.g., *"SQL Injection in Authentication Endpoint"*), the LLM generates complete, professional descriptions, potential impacts, CWE/OWASP mappings, and remediation steps.
-- **Evidence & Screenshot PoC Analysis**: Automatically extracts technical insights and summaries from uploaded proof-of-concept (PoC) screenshots and evidence artifacts.
-- **Grounded AI Security Memory Chat (`/memory-chat`)**: A Retrieval-Augmented Generation (RAG) assistant that allows security leads and auditors to query historical assessments in natural language (e.g., *"What remediations were implemented for past blind SQL injections?"*) with direct citations.
+### Key Capabilities of Hindsight Memory:
 
-#### 📸 LLM Feature Screenshots
-![AI Vulnerability Generation & Evidence Analysis](./screenshots/08_ai_generation.png)  
-*Figure 1: LLM-powered automatic vulnerability generation & evidence analysis.*
+1. **Semantic Memory Retention (`/v1/retain`)**:
+   - Stores sanitized vulnerability signatures, technical descriptions, attack steps, business impacts, CWE/OWASP categories, and verified retest outcomes (`PASSED` / `FAILED`) into long-term vector memory.
 
-![Grounded AI Security Memory Chat](./screenshots/06_memory_chat.png)  
-*Figure 2: Grounded RAG conversational AI assistant answering VAPT queries based on past security memory.*
+2. **Cross-Project Intelligence Recall (`/v1/recall`)**:
+   - When an auditor inspects or logs a finding in a new project, REDLINE automatically searches security memory using vector embeddings.
+   - It presents the auditor with **Similar Historical Findings**, including original project tags, past severity ratings, proven remediation steps, and previous auditor notes.
 
----
+3. **Grounded AI Security Memory Chat (`/memory-chat`)**:
+   - A Retrieval-Augmented Generation (RAG) assistant powered by LLM integration (Local LLM / Google Gemini).
+   - Allows security engineers and SOC leads to query all accumulated project knowledge in natural language (e.g., *"What attack steps and remediations were verified for GraphQL IDOR flaws in prior fintech audits?"*).
+   - Answers are strictly grounded in sanitized historical records with direct source citations.
 
-### 2. 🧠 Hindsight Persistent Security Memory Engine
+4. **Automated Confidentiality Guardrails**:
+   - Before storing memory vectors, REDLINE automatically redacts sensitive data including passwords, Bearer tokens, API keys, database connection strings, and authorization headers to maintain strict client data confidentiality.
 
-Hindsight serves as REDLINE's long-term memory vault, bridging historical security findings across projects:
-
-- **Persistent Retention (`/v1/retain`)**: When an auditor verifies a finding or records a retest outcome (`PASSED`, `FAILED`), Hindsight stores the sanitized finding vector into long-term vector memory.
-- **Semantic Recall (`/v1/recall`)**: When viewing any finding in a new project, REDLINE automatically searches past memory and displays matching vulnerabilities, original project context, and past retest notes.
-- **Automatic Data Sanitization**: Prior to storing memory vectors, REDLINE automatically redacts passwords, Bearer tokens, API secrets, connection strings, and authorization headers to guarantee client data confidentiality.
-- **Resilient Fallback Engine**: If the external vector memory engine is unreachable, REDLINE seamlessly falls back to PostgreSQL `security_memories` table searches without interrupting the auditor's workflow.
-
-#### 📸 Hindsight Memory Feature Screenshots
-![Similar Historical Findings Panel](./screenshots/04_finding_details.png)  
-*Figure 3: Similar findings automatically recalled from Hindsight memory during vulnerability inspection.*
-
-![Security Memory Transparency View](./screenshots/05_security_memory.png)  
-*Figure 4: Security Memory Transparency View displaying sanitized historical VAPT records.*
+5. **Resilient Fallback Engine**:
+   - If the external vector memory engine is unreachable, REDLINE seamlessly falls back to PostgreSQL `security_memories` table searches without interrupting the auditor's workflow.
 
 ---
 
-## 📸 Complete Application Screenshots Overview
+## 🎯 Perfect Use Case: Where REDLINE Is Particularly Required
 
-> *Place your PNG screenshot images in the `./screenshots/` directory matching the filenames below.*
+### 🏢 Scenario: Enterprise Security Operations & MSSP Security Audits
 
-| View | Screenshot Placeholder | Description |
+Consider a Managed Security Service Provider (MSSP) or an Enterprise Application Security team responsible for testing dozens of web applications, APIs, and microservices throughout the year, with a team of rotating junior and senior VAPT engineers.
+
+#### The Challenge Without REDLINE:
+- **Auditor A** conducts a VAPT on a microservice 6 months ago, spending 12 hours researching and verifying a complex OAuth 2.0 PKCE implementation flaw, formulating tailored remediation steps for the development team.
+- **Auditor B** (a newer team member) is assigned to audit a separate client application today that utilizes the exact same OAuth architecture and exhibits the same vulnerability.
+- Without REDLINE, Auditor B has no knowledge of Auditor A's work. Auditor B wastes hours re-researching attack vectors, struggling to write the business impact, and risking inaccurate remediation advice.
+
+#### The REDLINE Experience:
+1. **Instant Context Recall**: When Auditor B types the vulnerability title *"OAuth 2.0 PKCE State Validation Missing"* into REDLINE, the **Hindsight Engine** instantly displays Auditor A's previous finding from 6 months ago.
+2. **Actionable Attack Steps & Impact**: Auditor B immediately sees the exact attack steps, business impact rating, CWE mapping, and verified fix code that succeeded in the past.
+3. **Automated Documentation**: Auditor B uses REDLINE's LLM feature to generate a polished description and PoC analysis in seconds.
+4. **Standardized Quality**: Audit completion time is cut by **70%**, remediation guidance is consistent across clients, and executive reporting is generated with a single click.
+
+---
+
+## 📸 Application Highlights & Screenshots
+
+> *Place your PNG screenshot assets in the `./screenshots/` directory using the filenames below.*
+
+| View | Screenshot | How It Works & Usefulness |
 | :--- | :--- | :--- |
-| **Login Page** | ![REDLINE Login Page](./screenshots/01_login_page.png) | Clean SOC authentication view with REDLINE theme. |
-| **Analyst Dashboard** | ![REDLINE Analyst Dashboard](./screenshots/02_dashboard.png) | Executive overview showing active VAPT projects, severity metrics, and quick actions. |
-| **Project & Findings View** | ![Project Details & Findings](./screenshots/03_project_details.png) | VAPT project management, status workflow, PDF report generation, and findings table. |
-| **Finding Details & Retest** | ![Finding Details & Retest](./screenshots/04_finding_details.png) | Vulnerability details, severity badges, retest verification controls, and similar memory panel. |
-| **Security Memory View** | ![Security Memory Transparency](./screenshots/05_security_memory.png) | Transparent view of sanitized security memory records retained in Hindsight. |
-| **AI Memory Chat** | ![AI Security Memory Chat](./screenshots/06_memory_chat.png) | Grounded RAG conversational AI assistant answering VAPT queries based on past security memory. |
-| **PDF Report Preview** | ![PDF VAPT Report Preview](./screenshots/07_pdf_report.png) | Professionally branded REDLINE executive PDF report with historical security context. |
+| **Analyst Dashboard** | ![REDLINE Analyst Dashboard](./screenshots/02_dashboard.png) | Provides SOC leads and auditors with an executive overview of active VAPT projects, severity metrics, memory counts, and quick navigation actions. |
+| **Finding & Hindsight Recall** | ![Finding Details & Retest](./screenshots/04_finding_details.png) | Displays vulnerability details alongside the **Hindsight Memory Panel**, automatically showing attack steps, business impacts, and remediations from past findings. |
+| **AI Security Memory Chat** | ![AI Security Memory Chat](./screenshots/06_memory_chat.png) | Interactive RAG assistant enabling natural language queries against historical VAPT knowledge across all past projects with cited sources. |
+| **Security Memory Portal** | ![Security Memory Transparency](./screenshots/05_security_memory.png) | Transparency view for reviewing all sanitized security memory records retained across assessments. |
+| **AI Description Generator** | ![AI Vulnerability Generation](./screenshots/08_ai_generation.png) | LLM-powered engine that automatically expands vulnerability titles into complete descriptions, impact statements, and PoC screenshot analysis. |
+| **PDF VAPT Report Preview** | ![PDF VAPT Report Preview](./screenshots/07_pdf_report.png) | Branded executive PDF report generator enriched with historical security context and retest trends. |
 
 ---
 
-## 🎨 Visual Identity & SOC Design System
+## 🛠️ Application Architecture
 
-REDLINE features a state-of-the-art SOC-inspired dark interface designed for clarity during long auditing sessions:
-- **Background Palette**: Deep Matte Obsidian (`#050609`) with custom glowing red grid backdrops.
-- **Primary Accents**: Crimson Red (`#dc2626`, `#ef4444`, `#ff5555`) with subtle translucent glassmorphic borders (`rgba(239, 68, 68, 0.32)`).
-- **Typography & Components**: Clean typography (Inter/Roboto), crisp white headers, muted text colors (`#94a3b8`), and custom Material-UI components.
-
----
-
-## 🚀 Key Features Summary
-
-### 1. 📊 REDLINE Analyst Dashboard
-- SOC overview displaying active VAPT projects, total finding templates, security memory count, and generated reports.
-- Severity distribution metrics (Critical, High, Medium, Low, Informational) with direct navigation shortcuts.
-- Modern collapsible sidebar navigation with persistent REDLINE branding.
-
-### 2. 🧠 Persistent Security Memory Engine (Hindsight Integration)
-- Integrates with Hindsight vector memory (`/v1/retain`, `/v1/recall`) to memorize vulnerability patterns, fixes, and retest outcomes across assessments.
-- **Resilient Fallback Engine**: If Hindsight API services are offline, REDLINE seamlessly falls back to PostgreSQL `security_memories` table searches, ensuring zero downtime.
-- **Automated Sanitization Guardrails**: Automatically redacts passwords, Bearer tokens, API keys, database connection strings, and authorization headers prior to memory retention.
-
-### 3. 🔍 Similar Historical Findings Panel
-- Automatically searches security memory when viewing any VAPT finding.
-- Displays matching historical findings with vulnerability category, severity, original project, remediation guidance, and past retest outcomes.
-- Includes analyst feedback controls: **Mark Useful** or **Dismiss** suggestions.
-
-### 4. 💬 REDLINE AI Security Memory Chat (`/memory-chat`)
-- Grounded RAG Chat powered by LLM integration (Local / Gemini AI).
-- Enables auditors to query historical VAPT assessments in natural language (e.g., *"Have we documented SQL injection findings in previous web applications?"*).
-- Cites referenced memory records directly and maintains strict project-level access control boundaries.
-
-### 5. 👁️ Security Memory Transparency View (`/security-memory`)
-- Gives security leads complete visibility into all retained historical VAPT memory records.
-- Filter, search, and inspect sanitized summaries, remediation notes, retest outcomes, retaining auditor, and creation timestamps.
-
-### 6. 📄 VAPT Report Builder with Historical Context
-- Automated generation of executive VAPT PDF and Doc reports.
-- Optionally enriches reports with a dedicated **Historical Security Context & Prior Retest Outcomes** section to demonstrate long-term security trend improvements to stakeholders.
-
-### 7. ✅ Analyst Retest Verification Flow
-- Auditor verification controls on findings (`PASSED`, `FAILED`, `PENDING`).
-- Records retest timestamp, auditor identity, and verification notes.
-- Automatically syncs verified retest outcomes into persistent security memory.
-
----
-
-## 🛠️ System Architecture
+REDLINE is built with a decoupled, high-performance architecture designed for scale, resilience, and security.
 
 ```
-                                ┌─────────────────────────────────────────────────────────────┐
-                                │              REDLINE Frontend (Vite + React 18)             │
-                                │           Material-UI (MUI) SOC Crimson Dark Theme          │
-                                └──────────────────────────────┬──────────────────────────────┘
-                                                               │ REST API (JWT Bearer Tokens)
-                                ┌──────────────────────────────▼──────────────────────────────┐
-                                │                 REDLINE Backend (FastAPI)                   │
-                                │                                                             │
-                                │  ┌──────────────┐  ┌──────────────────┐  ┌───────────────┐ │
-                                │  │ Auth Service │  │ Findings Service │  │ Memory Engine │ │
-                                │  └──────────────┘  └──────────────────┘  └───────────────┘ │
-                                └───────────┬───────────────────┬───────────────────┬─────────┘
-                                            │                   │                   │
-                                ┌───────────▼───────────┐ ┌─────▼──────────┐ ┌──────▼────────────┐
-                                │ PostgreSQL Database   │ │ LLM AI Service │ │ Hindsight Engine  │
-                                │ (Docker Container:    │ │ (Local LLM /   │ │ (Persistent       │
-                                │  redline_postgres)    │ │  Gemini API)   │ │  Vector Memory)   │
-                                └───────────────────────┘ └────────────────┘ └───────────────────┘
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                          REDLINE Frontend (Vite + React 18)                            │
+│                       Material-UI (MUI v5) SOC Dark Theme                             │
+└───────────────────────────────────────────┬────────────────────────────────────────────┘
+                                            │ REST API (JWT Bearer Tokens)
+┌───────────────────────────────────────────▼────────────────────────────────────────────┐
+│                             REDLINE Backend (FastAPI)                                  │
+│                                                                                        │
+│   ┌─────────────────────┐   ┌───────────────────────┐   ┌──────────────────────────┐   │
+│   │ Authentication      │   │ VAPT Project &        │   │ Hindsight Security       │   │
+│   │ Service (JWT/RBAC)  │   │ Findings Engine       │   │ Memory Service           │   │
+│   └─────────────────────┘   └───────────────────────┘   └──────────────────────────┘   │
+│   ┌─────────────────────┐   ┌───────────────────────┐   ┌──────────────────────────┐   │
+│   │ LLM AI Service      │   │ PDF/DOCX Executive    │   │ Data Sanitization        │   │
+│   │ (Gemini / Local LLM)│   │ Report Builder        │   │ & Guardrails Engine      │   │
+│   └─────────────────────┘   └───────────────────────┘   └──────────────────────────┘   │
+└───────────────┬───────────────────────────┬───────────────────────────┬────────────────┘
+                │                           │                           │
+┌───────────────▼───────────────┐ ┌─────────▼──────────┐ ┌──────────────▼─────────────┐
+│ PostgreSQL Database 16        │ │ Gemini / LLM API   │ │ Hindsight Vector Memory     │
+│ (User data, projects,         │ │ (PoC analysis, RAG │ │ Engine (Vector storage &    │
+│  findings & memory fallback)  │ │  chat generation)  │ │  semantic recall)           │
+└───────────────────────────────┘ └────────────────────┘ └─────────────────────────────┘
 ```
 
-### Tech Stack
-
-- **Frontend**: React 18, Vite, TypeScript, Material-UI (MUI v5), React Query (`@tanstack/react-query`), React Router v6.
-- **Backend**: Python 3.10+ FastAPI, SQLAlchemy 2.0 ORM, Alembic Migrations, Pydantic v2, ReportLab PDF builder.
-- **Database**: PostgreSQL 16 (running via Docker `redline_postgres` container on port 5432) & pgAdmin (`redline_pgadmin` on port 5050).
-- **AI & Memory**: Local LLM / Google Gemini AI & Hindsight Persistent Security Memory Engine.
-
 ---
 
-## 🔒 Security & Privacy Safeguards
-
-- **Git Security**: Sensitive configuration files (`.env`), JWT keys, API keys, database credentials, user uploaded evidence, and generated PDF reports are strictly excluded via `.gitignore`.
-- **Role-Based Access Control (RBAC)**: Backend-enforced authorization ensures Auditors only view assigned projects while Admins retain system-wide auditing privileges.
-- **Data Redaction**: Sensitive strings (passwords, JWT tokens, hashes, authorization credentials) are automatically sanitized before being stored into vector memory.
-
----
-
-## 📁 Repository Structure
+## 📁 Codebase Architecture & Directory Structure
 
 ```
 redline-security-agent/
-├── .gitignore                      # Git ignore rules for environment and secrets
-├── .env.example                    # Global environment template
-├── docker-compose.yml              # Docker setup for PostgreSQL & pgAdmin
+├── docker-compose.yml              # Docker orchestration for PostgreSQL & pgAdmin
 ├── README.md                       # Project documentation
-├── screenshots/                    # Screenshot asset directory (Placeholders)
+├── screenshots/                    # Screenshot asset directory
 │   ├── 01_login_page.png
 │   ├── 02_dashboard.png
 │   ├── 03_project_details.png
@@ -180,84 +131,87 @@ redline-security-agent/
 │   ├── 06_memory_chat.png
 │   ├── 07_pdf_report.png
 │   └── 08_ai_generation.png
-├── backend/
-│   ├── .env.example                # Backend environment template
-│   ├── alembic/                    # Database migration scripts
+│
+├── backend/                        # FastAPI Backend Application
+│   ├── alembic/                    # DB Migration scripts (Alembic)
 │   ├── app/
-│   │   ├── api/v1/                 # REST API endpoints (auth, projects, findings, memory, ai)
-│   │   ├── core/                   # Security, JWT, configuration settings
-│   │   ├── database/               # DB connection sessions & base models
-│   │   ├── models/                 # SQLAlchemy ORM schemas
-│   │   ├── repositories/           # Database access layer
-│   │   ├── schemas/                # Pydantic validation schemas
-│   │   └── services/               # Business logic, AI, report generation & memory engine
-│   ├── assets/                     # REDLINE branding assets and logos
-│   ├── requirements.txt            # Python dependencies
-│   └── scripts/                    # Database seed scripts
-└── frontend/
-    ├── public/                     # Public assets, favicon, logos
+│   │   ├── api/v1/                 # API Routes & Endpoints
+│   │   │   ├── auth.py             # User login, registration & token generation
+│   │   │   ├── projects.py         # VAPT Project CRUD operations
+│   │   │   ├── findings.py         # Finding logs, retesting & memory retention
+│   │   │   ├── memory.py           # Security memory recall & transparency view
+│   │   │   ├── ai.py               # LLM generation & RAG Memory Chat endpoints
+│   │   │   └── reports.py          # PDF / Doc report generation
+│   │   ├── core/                   # System Configuration, Security & JWT handlers
+│   │   ├── database/               # Async engine, Session local & Base ORM models
+│   │   ├── models/                 # SQLAlchemy 2.0 ORM DB schemas (User, Project, Finding, Memory)
+│   │   ├── repositories/           # Data access objects (DAO pattern)
+│   │   ├── schemas/                # Pydantic v2 request/response validation schemas
+│   │   └── services/               # Core Business Logic Layer
+│   │       ├── ai_service.py       # LLM integration & prompt engineering
+│   │       ├── hindsight_service.py# Vector memory retention, recall & fallback logic
+│   │       ├── memory_service.py   # Data sanitization, redaction & memory management
+│   │       └── report_service.py   # ReportLab PDF building engine
+│   ├── assets/                     # Brand assets, templates & logos
+│   ├── requirements.txt            # Python backend dependencies
+│   └── scripts/                    # Database seeding scripts (seed_admin.py)
+│
+└── frontend/                       # React 18 + Vite Frontend Application
+    ├── public/                     # Static assets, branding icons & favicon
     ├── src/
-    │   ├── api/                    # Axios API client modules
-    │   ├── components/             # Reusable UI components (modals, memory widgets)
-    │   ├── context/                # Authentication context provider
-    │   ├── pages/                  # Main page views (Dashboard, Projects, Findings, Memory)
-    │   ├── theme.ts                # REDLINE SOC theme tokens (C.red, dark background)
-    │   ├── App.tsx                 # Application routes
-    │   └── main.tsx                # React entry point
-    └── package.json                # Frontend dependencies
+    │   ├── api/                    # Axios REST client API integrations
+    │   ├── components/             # Reusable SOC UI Components
+    │   │   ├── common/             # Buttons, Cards, Loading States & Modals
+    │   │   ├── memory/             # Similar Findings Panel & Retain Memory dialogs
+    │   │   └── layout/             # Sidebar, Header & Navigation structure
+    │   ├── context/                # AuthContext & React Query state wrappers
+    │   ├── pages/                  # Main Application Views
+    │   │   ├── Login.tsx           # Authentication page
+    │   │   ├── Dashboard.tsx       # SOC Overview & Metrics dashboard
+    │   │   ├── Projects.tsx        # Project list & creation modal
+    │   │   ├── ProjectDetails.tsx  # Project management & findings table
+    │   │   ├── FindingDetails.tsx  # Finding details, retest & memory recall panel
+    │   │   ├── MemoryTransparency.tsx # Security memory transparency viewer
+    │   │   └── MemoryChat.tsx      # Grounded AI RAG Chat interface
+    │   ├── theme.ts                # Crimson Dark SOC design tokens
+    │   ├── App.tsx                 # React Router v6 route configuration
+    │   └── main.tsx                # Application entry point
+    └── package.json                # Frontend package manifest & scripts
 ```
 
 ---
 
-## ⚙️ Environment Setup & Configuration
+## 🎨 Visual Identity & SOC Design System
 
-### 1. Root Environment File (`.env.example`)
-Copy `.env.example` to `.env` in the root folder:
-```ini
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=postgres123
-POSTGRES_DB=redline_db
-POSTGRES_PORT=5432
-PGADMIN_PORT=5050
-```
-
-### 2. Backend Environment File (`backend/.env.example`)
-Copy `backend/.env.example` to `backend/.env`:
-```ini
-# Database Connection
-DATABASE_URL=postgresql://postgres:postgres123@localhost:5432/redline_db
-
-# Security & JWT Authentication
-SECRET_KEY=replace_with_a_secure_random_secret_key
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=60
-
-# Gemini AI / LLM Configuration
-GEMINI_API_KEY=YOUR_GEMINI_API_KEY_HERE
-GEMINI_MODEL=gemini-3.5-flash-lite
-
-# Hindsight Persistent Security Memory Engine
-HINDSIGHT_API_URL=http://localhost:8888
-HINDSIGHT_API_KEY=your_optional_hindsight_api_key
-HINDSIGHT_TIMEOUT_SECONDS=5.0
-```
+REDLINE features a state-of-the-art dark SOC interface engineered for high visibility and reduced eye strain during long penetration testing engagements:
+- **Obsidian Dark Palette**: Deep Matte Obsidian backdrop (`#050609`) with glowing red grid accents.
+- **Crimson Red Accents**: `#dc2626`, `#ef4444`, `#ff5555` with translucent glassmorphism (`rgba(239, 68, 68, 0.32)`).
+- **Typography & Components**: Modern clean typography (Inter / Roboto), crisp contrast headers, and custom Material-UI (MUI) components.
 
 ---
 
-## 🚀 Quick Start Guide
+## 🔒 Security & Privacy Safeguards
+
+- **Automated Data Redaction**: Secrets, passwords, API keys, JWT Bearer tokens, connection strings, and authorization headers are automatically sanitized prior to memory retention.
+- **Role-Based Access Control (RBAC)**: Enforces access restrictions between Auditors (assigned projects only) and Administrators (full system access).
+- **Secret Isolation**: Configuration secrets (`.env`), JWT keys, evidence uploads, and generated reports are strictly ignored via `.gitignore`.
+
+---
+
+## ⚙️ Quick Start & Setup Guide
 
 ### Prerequisites
 - Python 3.10+
 - Node.js 18+ and npm
 - Docker Desktop (for PostgreSQL container)
 
-### Step 1: Launch Database Containers
+### Step 1: Launch Database Container
 ```bash
 docker-compose up -d
 ```
-Verify PostgreSQL is running on port `5432` and pgAdmin on port `5050`.
+*PostgreSQL runs on port `5432` and pgAdmin on port `5050`.*
 
-### Step 2: Backend Setup & Migrations
+### Step 2: Backend Setup & Database Seed
 ```bash
 cd backend
 python -m venv venv
@@ -273,34 +227,23 @@ python scripts/seed_admin.py
 ```
 
 *Default Seed Credentials:*
-- **Admin User**: `eswar@cdac.in` / `admin123`
-- **Auditor User**: `auditor@cdac.in` / `auditor123`
+- **Admin**: `eswar@cdac.in` / `admin123`
+- **Auditor**: `auditor@cdac.in` / `auditor123`
 
 ### Step 3: Start FastAPI Backend Server
 ```bash
 python -m uvicorn app.main:app --reload --port 8000
 ```
-Interactive API documentation: `http://localhost:8000/docs`
+*API Swagger Documentation: `http://localhost:8000/docs`*
 
-### Step 4: Frontend Setup & Launch
-Open a new terminal tab:
+### Step 4: Launch React Frontend
+In a new terminal:
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-Access the application in your browser at `http://localhost:5173`.
-
----
-
-## 🎬 Synthetic Walkthrough Scenario
-
-1. **Create VAPT Assessment**: Log in as `eswar@cdac.in`. Create a project named **Project Alpha** (`PAL-001`).
-2. **Record Finding**: Add a finding for *"SQL Injection in Login Endpoint"*.
-3. **Perform Retest**: Conduct a retest, mark the status as **PASSED**, and provide auditor notes.
-4. **Retain Memory**: Click **Retain to Security Memory**. The system redacts sensitive input and stores the fix pattern.
-5. **Cross-Project Intelligence**: Create **Project Beta** (`PBT-002`) and log a new SQL injection finding. Open the finding page to view **Similar Findings from Security Memory** automatically loaded from Project Alpha.
-6. **Query AI Memory Chat**: Navigate to `/memory-chat` and ask *"What SQL injection remediations were verified in prior projects?"* to receive grounded AI advice with cited memories.
+*Access REDLINE in your browser at `http://localhost:5173`.*
 
 ---
 
