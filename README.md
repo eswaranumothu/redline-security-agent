@@ -1,9 +1,5 @@
 # REDLINE — Security That Remembers 🛡️⚡
-
-> **AI-Powered VAPT Management & Reporting Platform with Persistent Security Memory (Hindsight Engine)**  
-> GitHub Repository: [https://github.com/eswaranumothu/redline-security-agent](https://github.com/eswaranumothu/redline-security-agent)
-
----
+AI-Powered VAPT Management & Reporting Platform with Persistent Security Memory (Hindsight Engine)
 
 ## 💡 Why REDLINE Was Introduced (Motivation & Vision)
 
@@ -69,18 +65,78 @@ Consider a Managed Security Service Provider (MSSP) or an Enterprise Application
 
 ---
 
+
 ## 📸 Application Highlights & Screenshots
 
-> *Place your PNG screenshot assets in the `./screenshots/` directory using the filenames below.*
+### 1. Analyst Dashboard
 
-| View | Screenshot | How It Works & Usefulness |
-| :--- | :--- | :--- |
-| **Analyst Dashboard** | ![REDLINE Analyst Dashboard](./screenshots/02_dashboard.png) | Provides SOC leads and auditors with an executive overview of active VAPT projects, severity metrics, memory counts, and quick navigation actions. |
-| **Finding & Hindsight Recall** | ![Finding Details & Retest](./screenshots/04_finding_details.png) | Displays vulnerability details alongside the **Hindsight Memory Panel**, automatically showing attack steps, business impacts, and remediations from past findings. |
-| **AI Security Memory Chat** | ![AI Security Memory Chat](./screenshots/06_memory_chat.png) | Interactive RAG assistant enabling natural language queries against historical VAPT knowledge across all past projects with cited sources. |
-| **Security Memory Portal** | ![Security Memory Transparency](./screenshots/05_security_memory.png) | Transparency view for reviewing all sanitized security memory records retained across assessments. |
-| **AI Description Generator** | ![AI Vulnerability Generation](./screenshots/08_ai_generation.png) | LLM-powered engine that automatically expands vulnerability titles into complete descriptions, impact statements, and PoC screenshot analysis. |
-| **PDF VAPT Report Preview** | ![PDF VAPT Report Preview](./screenshots/07_pdf_report.png) | Branded executive PDF report generator enriched with historical security context and retest trends. |
+<img width="947" alt="Analyst Dashboard" src="https://github.com/user-attachments/assets/8d52edfc-6044-4677-8a37-2bcab0eed4a1" />
+
+Centralized security operations dashboard providing an overview of active VAPT projects, vulnerability severity, assessment statistics, historical security memory, and quick navigation to essential modules.
+
+---
+
+### 2. Finding Page | Past Memory
+
+<img width="947" alt="Finding Page Past Memory" src="https://github.com/user-attachments/assets/8e58c6c0-f271-4e02-ad83-113b5eecb7f8" />
+
+Displays identified vulnerabilities, technical evidence, severity, and remediation details, with a dedicated **Past Memory** button to retrieve relevant findings and insights from previous assessments using Hindsight.
+
+---
+
+### 3. Past Memory | Hindsight Recall
+
+<img width="947" alt="Past Memory Hindsight Recall" src="https://github.com/user-attachments/assets/5449195d-943e-4edd-a477-eb502b800151" />
+
+Retrieves relevant historical security knowledge, including previously observed attack patterns, exploitation steps, business impact, and remediation strategies. **Hindsight** provides persistent memory across assessments, helping analysts reuse and build upon past experience.
+
+---
+
+### 4. AI Memory Chat | Launcher
+
+<img width="947" alt="AI Memory Chat Launcher" src="https://github.com/user-attachments/assets/9e3264e5-644d-4c2f-9b92-3bc77ee3a43a" />
+
+Dedicated AI memory chat entry point, represented by an intuitive chat icon, allowing analysts to access historical VAPT knowledge and interact with the security memory assistant from the platform.
+
+---
+
+### 5.  AI Memory Chat | Interactive Queries
+
+<img width="947" alt="AI Memory Chat Interactive Queries" src="https://github.com/user-attachments/assets/5e6a055f-164e-4d41-a36b-48d37173e043" />
+
+Conversational AI assistant powered by **Retrieval-Augmented Generation (RAG) and Hindsight**. Analysts can ask questions such as:
+
+- "Have we encountered this vulnerability before?"
+- "What exploitation techniques worked in previous assessments?"
+- "Show me similar findings and their remediation steps."
+
+Responses draw on relevant historical security knowledge with source references.
+
+---
+
+### 6. AI-Powered Vulnerability Details
+
+<img width="947" alt="AI-Powered Vulnerability Details" src="https://github.com/user-attachments/assets/330dc6a7-22d1-4aec-a1d7-706bae50f549" />
+
+Enter a **vulnerability name** and click **Generate** to let the integrated LLM automatically populate vulnerability details, including:
+
+- **Severity**
+- **CVSS Score**
+- **CWE**
+- **OWASP Classification**
+- **CVSS Vector**
+- **Technical Description**
+- **Business Impact**
+
+This AI-powered feature streamlines vulnerability documentation and reduces manual effort for VAPT engineers.
+
+---
+
+### 7. VAPT Report PDF
+
+<img width="947" alt="VAPT Report PDF" src="https://github.com/user-attachments/assets/a3a4b6ef-c772-4cfd-bb6c-3441bc424ee0" />
+
+Generates professional, branded VAPT reports containing vulnerability details, severity classifications, evidence, business impact, remediation guidance, and relevant historical context, supporting consistent security reporting and assessment reviews.
 
 ---
 
@@ -178,15 +234,6 @@ redline-security-agent/
     │   └── main.tsx                # Application entry point
     └── package.json                # Frontend package manifest & scripts
 ```
-
----
-
-## 🎨 Visual Identity & SOC Design System
-
-REDLINE features a state-of-the-art dark SOC interface engineered for high visibility and reduced eye strain during long penetration testing engagements:
-- **Obsidian Dark Palette**: Deep Matte Obsidian backdrop (`#050609`) with glowing red grid accents.
-- **Crimson Red Accents**: `#dc2626`, `#ef4444`, `#ff5555` with translucent glassmorphism (`rgba(239, 68, 68, 0.32)`).
-- **Typography & Components**: Modern clean typography (Inter / Roboto), crisp contrast headers, and custom Material-UI (MUI) components.
 
 ---
 
