@@ -1,7 +1,7 @@
-# REDLINE — Security That Remembers 🛡️⚡
+# REDLINE | Security That Remembers
 AI-Powered VAPT Management & Reporting Platform with Persistent Security Memory (Hindsight Engine)
 
-## 💡 Why REDLINE Was Introduced (Motivation & Vision)
+##  Why REDLINE Was Introduced (Motivation & Vision)
 
 Technology is evolving day by day, and with rapid digital transformation, the **attack surface is constantly expanding**. For Vulnerability Assessment and Penetration Testing (VAPT) engineers, SOC analysts, and security consultants, keeping pace with this evolving landscape presents a formidable challenge.
 
@@ -10,14 +10,14 @@ Beyond standardized CVEs, modern application security assessments involve custom
 - **Security Amnesia**: When new projects begin or different auditors join a team, engineers spend hours re-discovering attack vectors, re-writing vulnerability descriptions, and re-inventing remediation strategies that were already tested and proven in past projects.
 - **Disconnected Findings**: Previous retest results, proof-of-concept (PoC) steps, and verified fixes are rarely connected across different applications or client environments.
 
-### 🛡️ The REDLINE Solution
+###  The REDLINE Solution
 **REDLINE Security Agent** was introduced to solve cybersecurity amnesia. REDLINE transforms VAPT management by integrating an **AI Persistent Security Memory Engine (Hindsight Engine)** with Large Language Models (LLMs). 
 
 It acts as a collective security brain that remembers previous findings, projects, attack steps, business impacts, and verified remediations across all past assessments. When a VAPT engineer logs a new vulnerability, REDLINE instantly recalls similar past findings, suggests proven fixes, and allows auditors to query historical project knowledge via a grounded AI Memory Chat.
 
 ---
 
-## 🧠 Core Feature Highlight: Hindsight Persistent Security Memory Engine
+##  Core Feature Highlight: Hindsight Persistent Security Memory Engine
 
 At the heart of REDLINE is **Hindsight** — an intelligent vector memory technology designed specifically for cybersecurity auditing:
 
@@ -46,9 +46,9 @@ At the heart of REDLINE is **Hindsight** — an intelligent vector memory techno
 
 ---
 
-## 🎯 Perfect Use Case: Where REDLINE Is Particularly Required
+##  Perfect Use Case: Where REDLINE Is Particularly Required
 
-### 🏢 Scenario: Enterprise Security Operations & MSSP Security Audits
+###  Scenario: Enterprise Security Operations & MSSP Security Audits
 
 Consider a Managed Security Service Provider (MSSP) or an Enterprise Application Security team responsible for testing dozens of web applications, APIs, and microservices throughout the year, with a team of rotating junior and senior VAPT engineers.
 
@@ -66,7 +66,7 @@ Consider a Managed Security Service Provider (MSSP) or an Enterprise Application
 ---
 
 
-## 📸 Application Highlights & Screenshots
+##  Application Highlights & Screenshots
 
 ### 1. Analyst Dashboard
 
@@ -140,7 +140,7 @@ Generates professional, branded VAPT reports containing vulnerability details, s
 
 ---
 
-## 🛠️ Application Architecture
+##  Application Architecture
 
 REDLINE is built with a decoupled, high-performance architecture designed for scale, resilience, and security.
 
@@ -172,7 +172,7 @@ REDLINE is built with a decoupled, high-performance architecture designed for sc
 
 ---
 
-## 📁 Codebase Architecture & Directory Structure
+##  Codebase Architecture & Directory Structure
 
 ```
 redline-security-agent/
@@ -237,7 +237,7 @@ redline-security-agent/
 
 ---
 
-## 🔒 Security & Privacy Safeguards
+##  Security & Privacy Safeguards
 
 - **Automated Data Redaction**: Secrets, passwords, API keys, JWT Bearer tokens, connection strings, and authorization headers are automatically sanitized prior to memory retention.
 - **Role-Based Access Control (RBAC)**: Enforces access restrictions between Auditors (assigned projects only) and Administrators (full system access).
@@ -245,7 +245,7 @@ redline-security-agent/
 
 ---
 
-## ⚙️ Quick Start & Setup Guide
+##  Quick Start & Setup Guide
 
 ### Prerequisites
 - Python 3.10+
@@ -294,7 +294,7 @@ npm run dev
 
 ---
 
-## 📄 License & Attribution
+##  License & Attribution
 
 Developed for **REDLINE Security Operations**.  
 Repository: [eswaranumothu/redline-security-agent](https://github.com/eswaranumothu/redline-security-agent)
