@@ -273,9 +273,6 @@ alembic upgrade head
 python scripts/seed_admin.py
 ```
 
-*Default Seed Credentials:*
-- **Admin**: `eswar@cdac.in` / `admin123`
-- **Auditor**: `auditor@cdac.in` / `auditor123`
 
 ### Step 3: Start FastAPI Backend Server
 ```bash
